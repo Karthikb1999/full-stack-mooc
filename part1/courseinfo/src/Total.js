@@ -1,6 +1,6 @@
 const Total = (props) => {
-    const partExercises = props.partExercises;
-    const sum = partExercises.reduce((partialSum, a) => partialSum + a.count, 0);
+    const parts = props.course.parts;
+    const sum = parts.reduce((partialSum, a) => partialSum + a.exercises, 0);
     return (
         <p>
             Number of exercises {sum}

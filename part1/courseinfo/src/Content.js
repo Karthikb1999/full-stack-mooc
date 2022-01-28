@@ -1,9 +1,9 @@
 import Part from "./Part";
 
 const Content = (props) => {
-    const partExercises = props.partExercises;
-    const partsCompArray = partExercises.map((partExercise, index) =>
-        <Part key={index} part={partExercise.part} count={partExercise.count}
+    const partExercises = props.course.parts;
+    const partsCompArray = partExercises.map((part, index) =>
+        <Part key={index} name={part.name} exercises={part.exercises}
         />)
     return (
         <div>
