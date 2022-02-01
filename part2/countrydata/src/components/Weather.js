@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from './Header';
 
-const Weather = ({ capital, lat, lng }) => {
-    const [weatherStats, setWeatherStats] = useState({ temp: 0, wind: 0, deg: 0 });
+const Weather = ({ capital, lat, lng}) => {
+    const [weatherStats, setWeatherStats] = useState({ temp: 0, wind: 0, deg: 0, icon: "01n"});
 
 
     useEffect(() => {
@@ -13,7 +13,8 @@ const Weather = ({ capital, lat, lng }) => {
                 setWeatherStats({
                     temp: response.data.main.temp,
                     wind: response.data.wind.speed,
-                    deg: response.data.wind.deg
+                    deg: response.data.wind.deg,
+                    icon: response.data.weather.icon
                 });
             })
     }, []);
@@ -29,6 +30,7 @@ const Weather = ({ capital, lat, lng }) => {
             <div>
                 <b>temperature: </b>{weatherStats.temp} Celcius
             </div>
+            <img src={`http://openweathermap.org/img/wn/${weatherStats.icon}@2x.png`}></img>
             <div>
                 <b>wind: </b>{Math.round(weatherStats.wind * 2.237)} mph direction {degToCompass(weatherStats.deg)}
             </div>
