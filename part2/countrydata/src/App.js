@@ -17,12 +17,15 @@ const App = () => {
   }, []);
 
   const searchInputHandler = (event) => {
-    if(showCountry){
+    if (showCountry) {
       setShowCountry(false)
       setCountry({})
     }
     setFilter(event.target.value);
   }
+
+  const filteredCountries = countries
+    .filter((country) => country.name.common.toLowerCase().includes(filter.toLowerCase().trim()));
 
   const showClickHandler = (event) => {
     const clickCountry = countries.filter((country) => country.ccn3 === event.target.id)[0];
@@ -33,13 +36,14 @@ const App = () => {
   return (
     <div>
       <Search value={filter} handle={searchInputHandler} />
-      <Countries
-        countries={countries}
-        filter={filter}
-        country={country}
-        showCountry={showCountry}
-        clickHandler={showClickHandler}
-      />
+      {filter.trim() ?
+        <Countries
+          countries={filteredCountries}
+          filter={filter}
+          country={country}
+          showCountry={showCountry}
+          clickHandler={showClickHandler}
+        /> : <></>}
     </div>
   );
 }

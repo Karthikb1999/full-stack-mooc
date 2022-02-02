@@ -1,10 +1,7 @@
 import React from "react"
 import CountrySummary from "./CountrySummary"
 
-const CountriesSummary = ({ countries, filter ,country, showCountry ,clickHandler}) => {
-    if (!filter.trim()) return <></>
-    countries = countries
-        .filter((country) => country.name.common.toLowerCase().includes(filter.toLowerCase().trim()))
+const CountriesSummary = ({ countries ,country, showCountry ,clickHandler}) => {
     if (countries.length > 10) {
         return <div>Too many matches, specify another filter</div>
     }

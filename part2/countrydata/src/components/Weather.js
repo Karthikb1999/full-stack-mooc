@@ -2,23 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from './Header';
 
-const Weather = ({ capital, lat, lng}) => {
-    const [weatherStats, setWeatherStats] = useState({ temp: 0, wind: 0, deg: 0, icon: "01n"});
-
-
-    useEffect(() => {
-        const appId = process.env.REACT_APP_API_KEY;
-        axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${appId}&units=metric`)
-            .then((response) => {
-                setWeatherStats({
-                    temp: response.data.main.temp,
-                    wind: response.data.wind.speed,
-                    deg: response.data.wind.deg,
-                    icon: response.data.weather.icon
-                });
-            })
-    }, []);
-
+const Weather = ({ capital, weatherStats }) => {
+    
     const degToCompass = (deg) => {
         const val = Math.floor((deg / 22.5) + 0.5);
         const arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
