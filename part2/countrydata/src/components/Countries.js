@@ -1,7 +1,7 @@
 import React from "react"
 import CountrySummary from "./CountrySummary"
 
-const CountriesSummary = ({ countries ,country, showCountry ,clickHandler}) => {
+const CountriesSummary = ({ countries, clickHandler }) => {
     if (countries.length > 10) {
         return <div>Too many matches, specify another filter</div>
     }
@@ -17,12 +17,7 @@ const CountriesSummary = ({ countries ,country, showCountry ,clickHandler}) => {
                             {country.name.common}
                             <button id={country.ccn3} onClick={clickHandler}>Show</button>
                         </li>
-                        )
-            }
-            {
-                showCountry ? 
-                <CountrySummary country={country} /> :
-                <></>
+                    )
             }
         </ul>
     )

@@ -1,6 +1,4 @@
-import Header from "./Header";
-
-const Country = ({capital,population})=>{
+const Country = ({ capital, population }) => {
     return (
         <div>
             <div>capital {capital}</div>

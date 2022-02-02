@@ -3,7 +3,6 @@ import axios from 'axios';
 import Header from './Header';
 
 const Weather = ({ capital, weatherStats }) => {
-    
     const degToCompass = (deg) => {
         const val = Math.floor((deg / 22.5) + 0.5);
         const arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];

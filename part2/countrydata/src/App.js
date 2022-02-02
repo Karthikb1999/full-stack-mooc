@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Search from "./components/Search";
 import axios from "axios";
 import Countries from "./components/Countries";
+import CountrySummary from "./components/CountrySummary";
+
 
 const App = () => {
   const [countries, setCountries] = useState([]);
@@ -40,10 +42,13 @@ const App = () => {
         <Countries
           countries={filteredCountries}
           filter={filter}
-          country={country}
-          showCountry={showCountry}
           clickHandler={showClickHandler}
         /> : <></>}
+      {
+        showCountry ?
+          <CountrySummary country={country} /> :
+          <></>
+      }
     </div>
   );
 }

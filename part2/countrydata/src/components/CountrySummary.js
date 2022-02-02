@@ -1,4 +1,4 @@
-import React , {useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Country from "./Country";
 import Flag from "./Flag";
 import Languages from "./Languages";
@@ -25,8 +25,7 @@ const CountrySummary = ({ country }) => {
                 });
                 setShowWeather(true);
             })
-    }
-    , [country]);
+    }, [country]);
 
     return (
         <div>
